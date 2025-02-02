@@ -1,4 +1,4 @@
-Here's a step-by-step guide to **install Quantum ESPRESSO (QE) on Windows via WSL (Ubuntu)**, transfer data from external drives, and run QE:
+Step-by-step guide to **install Quantum ESPRESSO (QE) on Windows via WSL (Ubuntu)**, transfer data from external drives, and run QE:
 
 ---
 
