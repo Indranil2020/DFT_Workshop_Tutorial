@@ -1,4 +1,4 @@
-Here are step-by-step instructions to install VESTA on **Windows** and **Linux**:
+Step-by-step instructions to install VESTA on **Windows** and **Linux**:
 
 ---
 
