@@ -82,4 +82,4 @@ Here are step-by-step instructions to install VESTA on **Windows** and **Linux**
 - **Linux**: If you encounter missing dependencies (e.g., GTK+), install them using your package manager (e.g., `sudo apt install libgtk-3-0` on Debian/Ubuntu).
 - **Verification**: Check the [VESTA documentation](https://jp-minerals.org/vesta/en/) for troubleshooting.
 
-Let me know if you need further clarification!
+
