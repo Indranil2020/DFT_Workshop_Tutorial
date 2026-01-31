@@ -17,7 +17,10 @@ Later, this repository may be extended with material for other electronic-struct
    - Tutorial 2 (SCF + convergence tests in Si): [Tutorials_QE/Tutorial-2/](Tutorials_QE/Tutorial-2/)
    - Tutorial 3 (post-processing + supercells + bands): [Tutorials_QE/Tutorial-3/](Tutorials_QE/Tutorial-3/)
 
-3. Verify your QE executables (examples used in this repo):
+3. Pick or download pseudopotentials:
+   - Pseudopotentials folder + trusted download links: [psudo/README.md](psudo/README.md)
+
+4. Verify your QE executables (examples used in this repo):
    - `pw.x` (SCF/NSCF/Bands calculations)
    - `pp.x` (charge density post-processing)
    - `dos.x` (density of states)
@@ -36,15 +39,13 @@ All installation guides are under [Installation/](Installation/):
 - VESTA (structure/charge visualization): [Installation/VESTA_Installation.md](Installation/VESTA_Installation.md)
 - MobaXterm / PuTTY (SSH + file transfer): [Installation/MobaXerm_Putty_Installation.md](Installation/MobaXerm_Putty_Installation.md)
 
-Note: copies of some installation files also exist in [Tutorials_QE/](Tutorials_QE/). Prefer [Installation/](Installation/) as the main entry point.
-
 ### Tutorials and exercises (Quantum ESPRESSO)
 
 Top-level helper notes:
-- Basic Linux commands: [Tutorials_QE/Basic_Linux_command.md](Tutorials_QE/Basic_Linux_command.md)
-- Basic `vi/vim`: [Tutorials_QE/Basic_Vi_command.md](Tutorials_QE/Basic_Vi_command.md)
-- Basic `awk`: [Tutorials_QE/Basic_awk_command.md](Tutorials_QE/Basic_awk_command.md)
-- Basic gnuplot usage: [Tutorials_QE/GNU_Plot_Basic.md](Tutorials_QE/GNU_Plot_Basic.md)
+- Basic Linux commands: [Tutorials_QE/Basic_command/Basic_Linux_command.md](Tutorials_QE/Basic_command/Basic_Linux_command.md)
+- Basic `vi/vim`: [Tutorials_QE/Basic_command/Basic_Vi_command.md](Tutorials_QE/Basic_command/Basic_Vi_command.md)
+- Basic `awk`: [Tutorials_QE/Basic_command/Basic_awk_command.md](Tutorials_QE/Basic_command/Basic_awk_command.md)
+- Basic gnuplot usage: [Tutorials_QE/Basic_command/GNU_Plot_Basic.md](Tutorials_QE/Basic_command/GNU_Plot_Basic.md)
 
 #### Tutorial 1: Linux basics, XCrySDen, XMGrace
 
@@ -86,16 +87,13 @@ Main tutorial text: [Tutorials_QE/Tutorial-2/Instructions](Tutorials_QE/Tutorial
 
 ## Pseudopotentials included
 
-Silicon pseudopotentials (UPF) included in [Tutorials_QE/](Tutorials_QE/):
-- [Tutorials_QE/Si.pbe-n-kjpaw_psl.1.0.0.UPF](Tutorials_QE/Si.pbe-n-kjpaw_psl.1.0.0.UPF)
-- [Tutorials_QE/Si.pbe-nl-kjpaw_psl.1.0.0.UPF](Tutorials_QE/Si.pbe-nl-kjpaw_psl.1.0.0.UPF)
-- [Tutorials_QE/Si.pbe-n-rrkjus_psl.1.0.0.UPF](Tutorials_QE/Si.pbe-n-rrkjus_psl.1.0.0.UPF)
-- [Tutorials_QE/Si.pbe-nl-rrkjus_psl.1.0.0.UPF](Tutorials_QE/Si.pbe-nl-rrkjus_psl.1.0.0.UPF)
-- [Tutorials_QE/Si.pbe-rrkj.UPF](Tutorials_QE/Si.pbe-rrkj.UPF)
+See [psudo/README.md](psudo/README.md) for:
+- the pseudopotentials shipped with this repo
+- QE-compatible pseudopotential libraries (trusted sources) and download links
 
 ## Important notes before running calculations
 
-- Many input files and scripts contain hard-coded `pseudo_dir` paths that point to specific workshop machines. Update `pseudo_dir` to your local pseudopotential folder (for example, the included UPFs are in [Tutorials_QE/](Tutorials_QE/)).
+- Many input files and scripts contain hard-coded `pseudo_dir` paths that point to specific workshop machines. Update `pseudo_dir` to your local pseudopotential folder (for example, the included UPFs are in [psudo/](psudo/)).
 - Some templates use pseudopotential filenames that do not match the UPF filenames shipped in this repo. Make sure the `ATOMIC_SPECIES` line matches an existing UPF file.
 - Keep `prefix` and `outdir` consistent across SCF/NSCF and post-processing steps (`pp.x`, `dos.x`, `bands.x`), and create the `outdir` directory if the input points to a non-existent folder (for example, [Tutorials_QE/Tutorial-3/Exercise-1/dos.in](Tutorials_QE/Tutorial-3/Exercise-1/dos.in) uses `outdir = './tmp/'`).
 - Each `Reference/` folder contains example inputs/outputs that can be used to validate that your run is behaving as expected.
