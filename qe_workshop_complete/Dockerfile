@@ -33,6 +33,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libopenblas-dev \
     libfftw3-dev \
     libscalapack-mpi-dev \
+    libsymspg-dev\
     # Python
     python3 \
     python3-pip \
@@ -41,6 +42,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # Utilities
     wget \
     curl \
+    unzip \
     git \
     vim \
     less \
@@ -50,7 +52,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxrender1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-
+# 2. Manually install CMake 3.30 (Binary) to /usr/local
+# This ensures we have a real binary (not a python wrapper) that is version > 3.25
+RUN wget -qO- https://github.com/Kitware/CMake/releases/download/v3.30.0/cmake-3.30.0-linux-x86_64.tar.gz | \
+    tar --strip-components=1 -xz -C /usr/local
 # =============================================================================
 # Compile Quantum ESPRESSO 7.5 from source
 # =============================================================================
@@ -75,6 +80,8 @@ ENV PATH="${QE_DIR}/bin:${PATH}"
 # =============================================================================
 COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --no-cache-dir --upgrade pip && \
+    # Install modern CMake via pip (provides version > 3.25)
+    # pip3 install --no-cache-dir "cmake>=3.26" && \
     pip3 install --no-cache-dir -r /tmp/requirements.txt
 
 # =============================================================================
